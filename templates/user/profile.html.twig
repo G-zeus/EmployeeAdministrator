@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hola!{% endblock %}
+
+{% block body %}
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+
+        button:hover, a:hover {
+            opacity: 0.7;
+        }
+
+        .mb-3 a{
+            display: inline-block;
+            align-items: center;
+            padding: 2rem 2rem;
+            border-radius: 1rem;
+            font-size: 1.3rem
+        }
+
+
+    </style>
+    <div class="mb-3">
+        <a href="{{ path('app_logout') }}">Logout</a>
+        <a href="{{ path('home') }}">Home</a>
+    </div>
+    <h2 style="text-align:center">Perfil de {{user.getName()  }}</h2>
+
+    <div class="card">
+        <img src="" alt="{{ "a" }}" style="width:100%">
+        <h1>{{ user.getUserName() }}</h1>
+        <p class="title">{{ user.getEmail() }}</p>
+        <p>Miembro desde {{ user.getCreatedAt().format('Y-m-d')  }}</p>
+        <div style="margin: 24px 0;">
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <p><button>Contact</button></p>
+    </div>
+
+
+
+{% endblock %}
