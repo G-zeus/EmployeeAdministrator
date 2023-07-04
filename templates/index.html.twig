@@ -3,26 +3,69 @@
 {% block title %}Hola!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper label{
-        color: #cccccc;
-        border-radius: inherit;
-        border-color: #555555;
-        border-collapse: collapse;
-    }
-    .label-user{background-color: #1c80ce;}
-    .label-company{background-color: #0e61a2;}
-    /*.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }*/
-</style>
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
 
-<div class="example-wrapper">
-    <h1>¡Hola! ¿Que deseas realizar hacer? ✅</h1>
+        .example-wrapper label {
+            border-radius: inherit;
+            border-color: #555555;
+            border-collapse: collapse;
+        }
 
-    Tienes estas opciones de logeo:
-    <ul>
-        <li> <label class="label-company">Login Empresa</label> </li>
-        <li><label class="label-user">Login Usuario</label> </li>
-    </ul>
-</div>
+        .label-user {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .label-company {
+            background-color: #4cacaf;
+            color: white;
+        }
+
+        .label-banxico {
+            background-color: #af4c6a;
+            color: white;
+        }
+
+        .example-wrapper li {
+            display: inline-block;
+            align-items: center;
+            padding: 2rem 5rem;
+            border-radius: 1rem;
+            font-size: 1.3rem
+        }
+
+        .example-wrapper label {
+            display: block;
+            width: 11rem;
+            text-align: center;
+        }
+
+        .example-wrapper li label:hover {
+            background-color: #ddd;
+        }
+
+        /*.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }*/
+    </style>
+    <div class="example-wrapper">
+        <h1>¡Hola! ¿Que deseas realizar ? ✅</h1>
+
+        Tienes estas opciones de logueo:
+        <ul>
+            <li><label class="label-company"><a href="{{ path('app_login_company')}}">Login Empresa</a></label></li>
+            <li><label class="label-user"><a href="{{ path('app_login_user')}}">Login </a></label></li>
+        </ul>
+
+        Puedes consultar el servicio de Banxico
+        <ul>
+            <li><label class="label-banxico"><a href="{{ path('app_api_banxico')}}">Banxico</a></label></li>
+        </ul>
+    </div>
+
+
 {% endblock %}

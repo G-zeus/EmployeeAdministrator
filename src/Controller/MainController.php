@@ -18,8 +18,18 @@ class MainController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): Response
     {
+
         return $this->render('index.html.twig', [
             'controller_name' => 'MainController',
+        ]);
+    }
+
+    #[Route('/perfil', name: 'profile')]
+    public function profile(): Response
+    {
+
+        return $this->render('/user/profile.html.twig', [
+            'user' => $this->getUser(),
         ]);
     }
 }

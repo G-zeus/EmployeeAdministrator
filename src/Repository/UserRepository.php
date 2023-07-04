@@ -61,7 +61,18 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->save($user, true);
     }
 
-    public function create(string $email, string $name, string$userName, string $password, array $roles): array
+    public function createByEntity(User $user)
+    {
+        $user->setPassword(
+            $this->userPasswordHasher->hashPassword($user, $user->getPassword())
+            );
+        $user->setRoles(['USER']);
+        $this->_em->persist($user);
+        $this->_em->flush();
+
+    }
+
+    public function create(string $name, string$userName, string $password, array $roles= ['USER'], string $email =''): array
     {
         try {
 
@@ -132,7 +143,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
                 ];
             }
 
-            $this->create('admin@app.master.com', 'admin', 'admin' , 'test', ['COMPANY']);
+            $this->create('admin@app.master.com', 'admin', 'test' , ['COMPANY']);
 
             return [
                 'success' => true,
