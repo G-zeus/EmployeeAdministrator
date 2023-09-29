@@ -1,11 +1,11 @@
-# Examen Back End
+# EmployeeAdministrator Back End
 
 Módulo de gestión de empleados symfony
 
 ## Configuración del proyecto
 ### Clonar el repositorio
 ``` shell
-git clone https://github.com/G-zeus/ExamenBackMeda.git && cd ExamenBackMeda 
+git clone https://github.com/G-zeus/EmployeeAdministrator.git && cd ExamenBackMeda 
 ```
 Instalamos dependencias de composer
 ``` shell
